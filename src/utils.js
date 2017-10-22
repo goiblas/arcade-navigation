@@ -1,5 +1,15 @@
-export const centerGameObjects = (objects) => {
-  objects.forEach(function (object) {
-    object.anchor.setTo(0.5)
-  })
+
+export default class Utils {
+  static addStyle (el, styles) {
+    for (let prop in styles) {
+      el.style[prop] = styles[prop]
+    }
+  }
+
+  static extend (objA, objB) {
+    for (let key in objB) {
+      objA[key] = objB[key]
+    }
+    return objA
+  }
 }

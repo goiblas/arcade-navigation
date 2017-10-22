@@ -1,8 +1,9 @@
 {
-  "name": "webpack-phaser",
+  "name": "PhaserES6Webpack",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
+  "author": "leandro cabrera <leandcabrera@gmail.com>",
+  "main": "index.js",
   "scripts": {
     "dev": "webpack",
     "deploy": "webpack --config webpack.production.config.js",
@@ -18,7 +19,6 @@
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
     "clean-webpack-plugin": "^0.1.17",
-    "copy-webpack-plugin": "^4.2.0",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
@@ -30,6 +30,7 @@
     "webpack": "^3.4.1"
   },
   "dependencies": {
-    "phaser-ce": "^2.8.3"
+    "phaser-ce": "^2.8.3",
+    "webfontloader": "^1.6.28"
   }
 }

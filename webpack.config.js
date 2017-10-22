@@ -2,7 +2,6 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // Phaser webpack config
 var phaserModule = path.join(__dirname, '/node_modules/phaser-ce/')
@@ -10,45 +9,54 @@ var phaser = path.join(phaserModule, 'build/custom/phaser-split.js')
 var pixi = path.join(phaserModule, 'build/custom/pixi.js')
 var p2 = path.join(phaserModule, 'build/custom/p2.js')
 
+var definePlugin = new webpack.DefinePlugin({
+  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true'))
+})
+
 module.exports = {
   entry: {
     app: [
       'babel-polyfill',
-      path.resolve(__dirname, 'src/index.js')
+      path.resolve(__dirname, 'src/arcade-navigation.js')
     ],
-    vendor: ['pixi', 'p2', 'phaser']
+    vendor: ['pixi', 'p2', 'phaser', 'webfontloader']
   },
+  devtool: 'cheap-source-map',
   output: {
     pathinfo: true,
     path: path.resolve(__dirname, 'dist'),
     publicPath: './dist/',
     filename: 'arcade-navigation.js'
   },
-  devtool: 'source-map',
   watch: true,
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: 'src/assets',
-        to: 'assets'
-      }
-    ]),
+    definePlugin,
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'phaser.js'
+      name: 'vendor'/* chunkName= */, 
+      filename: 'phaser.js'/* filename= */ 
     }),
-
     new HtmlWebpackPlugin({
-      filename: './index.html',
+      filename: '../index.html',
       template: './src/index.html',
       chunks: ['vendor', 'app'],
+      chunksSortMode: 'manual',
+      minify: {
+        removeAttributeQuotes: false,
+        collapseWhitespace: false,
+        html5: false,
+        minifyCSS: false,
+        minifyJS: false,
+        minifyURLs: false,
+        removeComments: false,
+        removeEmptyAttributes: false
+      },
       hash: false
     }),
     new BrowserSyncPlugin({
       host: process.env.IP || 'localhost',
       port: process.env.PORT || 3000,
       server: {
-        baseDir: ['./']
+        baseDir: ['./', './build']
       }
     })
   ],
