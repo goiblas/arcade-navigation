@@ -10,12 +10,12 @@ export default class Game extends Phaser.Game {
 
     class GameStateWithAssets extends GameState {
       preload () {
-        this.game.load.image('ship', options.ship)
-        this.game.load.image('singlebullet', options.bullet)
-        this.game.load.spritesheet('explode', options.explode, 128, 128, 16)
-        this.game.load.image('particle', options.particle)
-        this.game.load.image('hole', options.hole)
-        this.enemytags = options.enemies
+        this.game.load.image('ship', options.ruta + options.imagenes.nave)
+        this.game.load.image('singlebullet', options.ruta + options.imagenes.laser)
+        this.game.load.spritesheet('explode', options.ruta + options.imagenes.explosion, 128, 128, 16)
+        this.game.load.image('particle', options.ruta + options.imagenes.particula)
+        this.game.load.image('hole', options.ruta + options.imagenes.hueco)
+        this.enemytags = options.enemigos
         this.clickdelay = options.delay
       }
     }

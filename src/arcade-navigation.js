@@ -18,7 +18,7 @@ class ArcadeNavigation {
       'left': 0,
       'width': '100%',
       'height': '100%',
-      'z-index': this.options['z-index'],
+      'z-index': this.options.zIndex,
       'pointer-events': 'none'
     }
     document.body.style.position = 'relative'
