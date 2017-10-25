@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola! otra vez</h1>
+    <p>Como ves puedes </p>
+
+    <div class="blockLink">
+        <a href="index.html">Volver a la pagina de la documentación</a>
+    </div>
+
+        <script src="js/phaser.js"></script>
+        <script src="js/arcade-navigation.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var arcadeNavigator = new ArcadeNavigation({
+                    ruta: '/arcade-navigation/assets/'
+                })
+                arcadeNavigator.init()
+            });
+        </script>
+</body>
+</html>
