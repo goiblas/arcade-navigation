@@ -10,7 +10,7 @@ class ArcadeNavigation {
 
   init () {
     this.wrapper = document.createElement('div')
-    this.wrapper.id = this.options.divName
+    this.wrapper.id = this.options.id
 
     const styles = {
       'position': 'absolute',
