@@ -6,7 +6,7 @@ import GameState from './game-state'
 
 export default class Game extends Phaser.Game {
   constructor (w, h, options) {
-    super(w, h, Phaser.AUTO, options.divName, null, true)
+    super(w, h, Phaser.AUTO, options.id, null, true)
 
     class GameStateWithAssets extends GameState {
       preload () {
