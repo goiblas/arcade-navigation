@@ -1,6 +1,6 @@
 {
   "name": "arcade-navigation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Añade navegación arcade",
   "author": "Jesús Olazagoitia <jesus.designer@gmail.com>",
   "main": "dist/arcade-navigation.js",

@@ -48,7 +48,8 @@ export default class extends Phaser.State {
       x: 200,
       y: this.middlePosition + 20,
       asset: 'ship',
-      initialVelocity: -100
+      initialVelocity: -100,
+      shadow: this.shadow
     })
 
     this.weapon = new WeaponEmitter({
