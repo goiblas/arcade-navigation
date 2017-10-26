@@ -35,20 +35,20 @@ export default class extends Phaser.State {
       instances: 100
     })
 
-    this.ship = new Ship({
-      game: this.game,
-      x: 200,
-      y: this.middlePosition + 20,
-      asset: 'ship',
-      initialVelocity: -100
-    })
-
     this.shadow = new Shadow({
       game: this.game,
       x: 200,
       y: this.middlePosition + 20,
       asset: 'ship',
       origin: this.ship
+    })
+
+    this.ship = new Ship({
+      game: this.game,
+      x: 200,
+      y: this.middlePosition + 20,
+      asset: 'ship',
+      initialVelocity: -100
     })
 
     this.weapon = new WeaponEmitter({
